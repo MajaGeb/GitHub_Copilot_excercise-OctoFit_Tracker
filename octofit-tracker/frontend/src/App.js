@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import logo from './octofitapp-small.svg';
 import Activities from './components/Activities';
 import Leaderboard from './components/Leaderboard';
 import Teams from './components/Teams';
@@ -13,6 +14,7 @@ function App() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">
+              <img src={logo} alt="OctoFit Tracker" />
               OctoFit Tracker
             </Link>
             <button
@@ -68,6 +70,10 @@ function App() {
             path="/"
             element={
               <div className="container mt-5">
+                <div className="logo-container">
+                  <img src={logo} alt="OctoFit Tracker Logo" className="app-logo" />
+                  <div className="logo-text">OctoFit Tracker</div>
+                </div>
                 <h1>Welcome to OctoFit Tracker</h1>
                 <p className="lead">Track your fitness activities, compete on the leaderboard, and achieve your goals with your team.</p>
                 <p>Use the navigation menu above to explore Activities, Leaderboard, Teams, Users, and Workouts.</p>

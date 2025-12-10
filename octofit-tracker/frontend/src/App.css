@@ -1,38 +1,474 @@
+/* OctoFit Tracker Color Scheme */
+:root {
+  --primary-color: #2ecc71;
+  --secondary-color: #3498db;
+  --dark-bg: #1a1a1a;
+  --light-bg: #f8f9fa;
+  --text-dark: #2c3e50;
+  --text-light: #ecf0f1;
+  --accent-color: #e74c3c;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --info-color: #3498db;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navigation Styling */
+.navbar {
+  background: linear-gradient(90deg, #2c3e50 0%, #34495e 100%) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color) !important;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: var(--secondary-color) !important;
+  transform: scale(1.05);
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.nav-link {
+  color: var(--text-light) !important;
+  font-weight: 500;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+  transform: translateY(-2px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-toggler {
+  border-color: var(--primary-color) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%232ecc71' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Container Styling */
+.container {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  margin-top: 30px;
+  border-left: 5px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.container:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Heading Styling */
+h1 {
+  color: var(--text-dark);
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1::before {
+  content: '🏋️ ';
+}
+
+h2 {
+  color: var(--secondary-color);
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+h3 {
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+h4, h5, h6 {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+/* Text Styling */
+p, span, div {
+  color: var(--text-dark);
+}
+
+.lead {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-top: 4px solid var(--primary-color);
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-top-color: var(--secondary-color);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.card-text {
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Table Styling */
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table thead {
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+}
+
+.table thead th {
   color: white;
+  font-weight: bold;
+  border: none;
+  padding: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.App-link {
-  color: #61dafb;
+.table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.table tbody tr:hover {
+  background-color: #f0f8ff;
+  transform: scale(1.01);
+}
+
+.table tbody td {
+  padding: 12px 15px;
+  vertical-align: middle;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Link Styling */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Button Styling */
+.btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white !important;
+  border-color: transparent;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  border-color: transparent;
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--secondary-color), #5dade2);
+  color: white !important;
+  border-color: transparent;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #5dade2, var(--secondary-color));
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success-color), var(--primary-color));
+  color: white !important;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, var(--primary-color), var(--success-color));
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, var(--warning-color), #e67e22);
+  color: white !important;
+}
+
+.btn-warning:hover {
+  background: linear-gradient(135deg, #e67e22, var(--warning-color));
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--accent-color), #c0392b);
+  color: white !important;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #c0392b, var(--accent-color));
+}
+
+.btn-info {
+  background: linear-gradient(135deg, var(--info-color), #2980b9);
+  color: white !important;
+}
+
+.btn-info:hover {
+  background: linear-gradient(135deg, #2980b9, var(--info-color));
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(52, 152, 219, 0.1));
+  border-radius: 12px;
+  border-left: 5px solid var(--primary-color);
+}
+
+.app-logo {
+  height: 60px;
+  width: auto;
+  margin-right: 20px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.app-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading State */
+.text-center {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* Error Messages */
+.text-danger {
+  color: var(--accent-color) !important;
+  font-weight: 600;
+}
+
+.text-muted {
+  color: #7f8c8d !important;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+
+  .logo-container {
+    padding: 15px;
+  }
+
+  .app-logo {
+    height: 45px;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+
+  .table thead th,
+  .table tbody td {
+    padding: 10px;
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .container {
+    padding: 15px;
+    margin-top: 15px;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .logo-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .app-logo {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .lead {
+    font-size: 1rem;
   }
 }
